@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,
+body {
+    @apply bg-neutral-200;
+    --conic-angle: 0deg;
+}
+
+@property --conic-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.conic-bg {
+    position: relative;
+    background-image: conic-gradient(from var(--conic-angle) at 50% 50%, #00000000 45%, #000000FF 50%, #FFFFFF00 55%);
+    animation: rotate-conic-angle 2s linear infinite;
+}
+
+@keyframes rotate-conic-angle {
+    0% {
+        --conic-angle: 0deg;
+    }
+
+    100% {
+        --conic-angle: 360deg;
+    }
+}
